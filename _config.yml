@@ -1,0 +1,128 @@
+####
+## @file
+## Jekyll configuration
+##
+## We try to push as much sitewide config as possible into this file, so a new deployment can start with just editing
+## this file.
+##
+## If you need help with YAML syntax, here are some quick references for you:
+## https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+## https://learnxinyminutes.com/docs/yaml/
+##
+## Throughout this file, you'll see two # marks at the start of a line for a permanent comment, and a single # for
+## configuration options that can be enabled by removing the #.
+##
+## When adding new sections, be sure to name them so they make sense to others, and to document with good comments
+## wherever possible/practical.
+####
+
+## Technical site info
+#baseurl: "" # This is better empty
+subpath: "/resume" # Could be a subsite of a domain at a path, ex. "/sub-site"
+google_analytics: UA-697953-3 # The UA- code provided by GA
+title: "John Doe"
+
+## The <html> tag has language and language direction. We can make it configurable
+html:
+  dir: "ltr"
+  lang: "en"
+  locale: "en_US" # Technically used for open_graph, but we can set it here
+
+## Standard <meta> tags for SEO, etc.
+meta:
+  description: "John Doe transforms organizations."
+  generator: "[Jekyll](https://github.com/mojombo/jekyll)"
+  image:
+    alt: "Site default social image" # It's okay for this to be an empty string if the image is decorative
+    src: required/meta-image--default.jpg
+  robots: "index,follow"
+
+## Open Graph - the parts not inferred from other site/meta info above
+## @see https://ogp.me/
+open_graph:
+  og_type: website
+#  fb_app_id: "XXXXXXXXXX"
+
+## schema.org
+## @see https://schema.org/docs/schemas.html
+schema:
+  type: "CreativeWork" # (default for site, often "CreativeWork")
+  publisher:
+    type: "Person" # Whether a "Person" or "Organization" is the publisher of the site.
+
+## Twitter cards
+## @see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started
+twitter:
+  card: "summary_large_image"
+  creator: "@ao5357"
+  site: "@ao5357"
+
+## Woff2 files declared as webfonts in your css, relative to /assets/fonts/
+## Placing them here sets them to be preloaded in the head, which reduces request chaining for better performance.
+## @see https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content
+woff:
+  - "public_sans/public_sans_variable.woff2"
+  - "public_sans/public_sans_variable_italic.woff2"
+
+## Content license (comment out to disable entirely)
+## @see https://creativecommons.org/share-your-work/
+content_license:
+  name: "CC BY-SA 4.0"
+  url: "http://creativecommons.org/licenses/by-sa/4.0/"
+
+## Jekyll configs
+## @see https://jekyllrb.com/docs/configuration/
+collections_dir: collections
+encoding: utf-8
+exclude:
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - netlify.toml
+  - readme.md
+  - "vendor/bundle/"
+  - "vendor/cache/"
+  - "vendor/gems/"
+  - "vendor/ruby/"
+future: true
+highlighter: rouge
+include:
+  - ".htaccess"
+keep_files:
+  - ".git"
+  - ".svn"
+kramdown:
+  auto_ids: true
+  entity_output: as_char
+  footnote_nr: 1
+  hard_wrap: false
+  input: GFM
+  parse_block_html: false
+  parse_span_html: false
+  show_warnings: true
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: [1, 2, 3, 4, 5, 6]
+liquid:
+  error_mode: strict
+  strict_filters: true
+  strict_variables: false
+markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+paginate: 30
+paginate_path: /blog/page-:num/
+permalink: /blog/:title/
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+profile: true
+safe: true
+sass:
+  sass_dir: assets/css
+  style: :compressed
+strict_front_matter: true
+theme: jekyll-theme-primer
+timezone: Etc/UTC # Allows use to set dates/times without a GMT offset.
+unpublished: false
+whitelist:
+  - jekyll-redirect-from
